@@ -21,6 +21,7 @@ private Button btnsansang;
 
                 Intent intent =new Intent(tienThuongLayout.this,PlayerActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
         });
     }
