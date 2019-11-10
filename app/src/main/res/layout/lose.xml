@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#B626E2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<TextView
+    android:layout_gravity="center"
+    android:text="luu thanh tich cua ban"
+    android:textSize="30dp"
+    android:textColor="#E41111"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp">
+
+
+</TextView>
+    <EditText
+        android:textSize="30dp"
+        android:hint="nhap ten cua ban"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+    </EditText>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="bo qua"
+            android:layout_width="150dp"
+            android:layout_height="60dp">
+
+        </Button>
+        <Button
+            android:layout_marginLeft="100dp"
+            android:text="luu"
+            android:layout_width="150dp"
+            android:layout_height="60dp">
+
+        </Button>
+    </LinearLayout>
+</LinearLayout>

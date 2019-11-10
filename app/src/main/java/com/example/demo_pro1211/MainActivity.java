@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public static String DATABASE_NAME="ALTPdb.sqlite";
     private static final String DB_PATH_SUFFIX="/databases/";
     public static SQLiteDatabase database=null;
-
+    private ImageView imageView;
     private ImageView imgload;
     private View imgcircle;
     @Override
@@ -34,9 +34,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.truoc);
-
+        imageView=findViewById(R.id.imageView);
         imgload=findViewById(R.id.load);
         imgcircle=findViewById(R.id.bg_circle_anim);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,HomeFragment.class);
+                startActivity(intent);
+            }
+        });
         saochepCSDL();
         //---------------------------------
         ObjectAnimator objectAnimator=ObjectAnimator.ofFloat(imgload,"rotation",0f,360f);
@@ -71,22 +78,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @Override
-    public void onBackPressed() {
-        final ThongBaoDiaLog thongBaoDialog = new ThongBaoDiaLog(this);
-        thongBaoDialog.setCancelable(true);
-        thongBaoDialog.setNotification("Bạn muốn thoát trò chơi ?", "Đồng ý", "Hủy", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v.getId() == R.id.btn_ok) {
-                    finish();
-
-                }
-                thongBaoDialog.dismiss();
-            }
-        });
-        thongBaoDialog.show();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        final ThongBaoDiaLog thongBaoDialog = new ThongBaoDiaLog(this);
+//        thongBaoDialog.setCancelable(true);
+//        thongBaoDialog.setNotification("Bạn muốn thoát trò chơi ?", "Đồng ý", "Hủy", new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (v.getId() == R.id.btn_ok) {
+//                    finish();
+//
+//                }
+//                thongBaoDialog.dismiss();
+//            }
+//        });
+//        thongBaoDialog.show();
+//    }
     private void saochepCSDL() {
 
 
