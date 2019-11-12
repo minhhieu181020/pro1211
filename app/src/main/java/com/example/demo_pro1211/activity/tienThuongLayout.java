@@ -1,4 +1,4 @@
-package com.example.demo_pro1211;
+package com.example.demo_pro1211.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.demo_pro1211.R;
+import com.example.demo_pro1211.dilalog.ThongBaoDiaLog;
 
 public class tienThuongLayout extends AppCompatActivity {
     private TextView tvLevel;
@@ -52,7 +54,7 @@ public class tienThuongLayout extends AppCompatActivity {
         builder.setPositiveButton("Sẵn sàng", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent=new Intent(tienThuongLayout.this,PlayerActivity.class);
+                Intent intent=new Intent(tienThuongLayout.this, PlayerActivity.class);
                 startActivity(intent);
             }
         });

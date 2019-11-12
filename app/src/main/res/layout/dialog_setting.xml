@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:background="@drawable/home_background"
-    android:layout_height="match_parent"
-    tools:context=".activity.settingActivity">
-<LinearLayout
-android:layout_marginTop="20dp"
-    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="#3C0C4E"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <TextView
-        android:textColor="#fff"
-        android:textSize="30dp"
-        android:text="Âm Thanh:"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content">
-
-    </TextView>
-
-    <ImageView
-        android:id="@+id/imgon"
-       android:layout_gravity="right"
-        android:src="@drawable/ic_on"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
-</LinearLayout>
     <LinearLayout
-android:layout_marginTop="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:text="Âm Thanh:"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imgondialog"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_on"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -49,5 +47,4 @@ android:layout_marginTop="20dp"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
     </LinearLayout>
-
 </LinearLayout>

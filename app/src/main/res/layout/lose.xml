@@ -26,12 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/btncancle_lose"
             android:text="bo qua"
             android:layout_width="150dp"
             android:layout_height="60dp">
 
         </Button>
         <Button
+            android:id="@+id/btnsavelose"
             android:layout_marginLeft="100dp"
             android:text="luu"
             android:layout_width="150dp"

@@ -1,6 +1,5 @@
-package com.example.demo_pro1211;
+package com.example.demo_pro1211.activity;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
@@ -15,6 +14,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.demo_pro1211.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,HomeFragment.class);
+                Intent intent=new Intent(MainActivity.this, HomeFragment.class);
                 startActivity(intent);
             }
         });
@@ -52,16 +53,15 @@ public class MainActivity extends AppCompatActivity {
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator.setInterpolator(new LinearInterpolator());
         objectAnimator.start();
-
         //-------------------------------------------------
         ObjectAnimator objectAnimator1=ObjectAnimator.ofFloat(imgcircle,"rotation",0f,360f);
         objectAnimator1.setDuration(10000);
         objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator1.setInterpolator(new LinearInterpolator());
         objectAnimator1.start();
-        new CountDownTimer(5000, 3000) {
+        new CountDownTimer(1000, 3000) {
             public void onTick(long millisUntilFinished) {
-                mediaPlayer.start();
+//                mediaPlayer.start();
             }
 
             public void onFinish() {

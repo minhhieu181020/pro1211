@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#611769"
+    android:layout_height="wrap_content"
+    tools:context=".dilalog.GoiNguoiThanDialog">
+
+    <RelativeLayout
+        android:id="@+id/rl_calls"
+        android:layout_width="430dp"
+        android:layout_height="301dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="48dp">
+
+        <LinearLayout
+            android:id="@+id/ln_answer"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="32dp"
+                android:text="Theo tôi đáp án đúng là A"
+                android:textColor="#ffbe1c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_call_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btnPerson1"
+                android:layout_width="72dp"
+
+                android:layout_height="72dp"
+                android:src="@drawable/billgate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gate gioi van"
+                android:textColor="#ffffff"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_call_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btnPerson2"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/mark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mark gioi Dia"
+                android:textColor="#ffffff"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_call_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btnPerson3"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/taylor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Taylor gioi Ly"
+                android:textColor="#ffffff"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_call_04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btnPerson4"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/songoku" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Son gioi toan"
+                android:textColor="#ffffff"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center|bottom"
+>
+        <Button
+            android:id="@+id/btn_close_call"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:text="Đóng"
+            android:textSize="15dp"
+            android:textColor="#FCDB19"
+            android:textAllCaps="false"
+            android:background="#C22929"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+    />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="172dp"
+        android:layout_height="50dp"
+        android:text="AAAAAAAAAAAAA"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:background="#41DFDB"
+        android:layout_marginTop="-322dp"
+        android:id="@+id/txtGoiY" />
+
+</LinearLayout>

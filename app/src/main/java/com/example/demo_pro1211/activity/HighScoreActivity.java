@@ -1,8 +1,10 @@
-package com.example.demo_pro1211;
+package com.example.demo_pro1211.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.demo_pro1211.R;
 
 public class HighScoreActivity extends AppCompatActivity {
 

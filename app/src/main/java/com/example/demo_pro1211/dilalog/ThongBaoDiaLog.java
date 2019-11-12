@@ -1,16 +1,16 @@
-package com.example.demo_pro1211;
+package com.example.demo_pro1211.dilalog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.demo_pro1211.R;
+import com.example.demo_pro1211.activity.PlayerActivity;
 
 public class ThongBaoDiaLog extends AppCompatActivity  {
     public Button btnCancle;
@@ -29,7 +29,7 @@ public class ThongBaoDiaLog extends AppCompatActivity  {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ThongBaoDiaLog.this,PlayerActivity.class);
+                Intent intent=new Intent(ThongBaoDiaLog.this, PlayerActivity.class);
                 startActivity(intent);
             }
         });

@@ -9,13 +9,15 @@
         android:roundIcon="@drawable/icon_logo_app1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThongBaoDiaLog"></activity>
-        <activity android:name=".HighScoreActivity" />
-        <activity android:name=".settingActivity" />
-        <activity android:name=".PlayerActivity" />
-        <activity android:name=".tienThuongLayout" />
-        <activity android:name=".HomeFragment" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".dilalog.GoiNguoiThanDialog"></activity>
+        <activity android:name=".dilalog.yKienKhanGiaDialog" />
+        <activity android:name=".dilalog.ThongBaoDiaLog" />
+        <activity android:name=".activity.HighScoreActivity" />
+        <activity android:name=".activity.settingActivity" />
+        <activity android:name=".activity.PlayerActivity" />
+        <activity android:name=".activity.tienThuongLayout" />
+        <activity android:name=".activity.HomeFragment" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

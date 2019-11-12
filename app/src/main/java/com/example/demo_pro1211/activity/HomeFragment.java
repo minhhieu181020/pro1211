@@ -1,26 +1,26 @@
-package com.example.demo_pro1211;
+package com.example.demo_pro1211.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.example.demo_pro1211.R;
 
 public class HomeFragment extends AppCompatActivity {
     private ImageView imgabout, imgsetting, imghighscore;
     private AlertDialog alertDialog;
     private ImageButton imgPlay;
     private View imgcircle;
-
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +31,10 @@ public class HomeFragment extends AppCompatActivity {
         imgsetting = findViewById(R.id.btn_setting);
         imgPlay = findViewById(R.id.btn_play);
         imgcircle=findViewById(R.id.bg_circle_anim);
-
+        mediaPlayer=MediaPlayer.create(this,R.raw.hihi);
         ObjectAnimator objectAnimator=ObjectAnimator.ofFloat(imgcircle,"rotation",0f,360f);
         objectAnimator.setDuration(10000);
-
+//        mediaPlayer.start();
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator.setInterpolator(new LinearInterpolator());
         objectAnimator.start();

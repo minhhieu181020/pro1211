@@ -1,4 +1,4 @@
-package com.example.demo_pro1211;
+package com.example.demo_pro1211.model;
 public class Question {
     public String question;
     public String caseA;
