@@ -14,7 +14,15 @@
 
 
 </TextView>
+
     <EditText
+        android:id="@+id/edID"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="ID" />
+
+    <EditText
+        android:id="@+id/edname"
         android:textSize="30dp"
         android:hint="nhap ten cua ban"
         android:layout_width="match_parent"

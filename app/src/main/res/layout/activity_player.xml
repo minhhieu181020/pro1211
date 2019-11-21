@@ -58,12 +58,13 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
-                android:text="150,000,000"
+                android:text="000,000"
                 android:textColor="#ffffff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/imgonplayer"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -71,6 +72,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:src="@drawable/ic_on" />
+            <ImageView
+                android:onClick="back"
+                android:src="@drawable/back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
             <ImageView
                 android:visibility="gone"
                 android:id="@+id/imgoffplayer"
@@ -146,7 +152,7 @@
                 android:layout_gravity="center|top"
                 android:background="@drawable/player_order_question"
                 android:gravity="center"
-                android:text="Câu 1"
+                android:text="Câu số 1"
                 android:textColor="#9C27B0"
                 android:textSize="18sp"
                 android:textStyle="bold" />

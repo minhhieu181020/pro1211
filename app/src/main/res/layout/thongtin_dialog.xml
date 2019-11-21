@@ -138,10 +138,11 @@
         android:textColor="#000000"
         android:textSize="15dp" />
 </LinearLayout>
+
     <Button
         android:id="@+id/buttonDong"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="#4EDDD2"
         android:gravity="center"

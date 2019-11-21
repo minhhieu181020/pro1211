@@ -33,7 +33,7 @@ public class tienThuongLayout extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                showAlertDialog();
-//               showDialog();
+
 
             }
         });
@@ -41,7 +41,7 @@ public class tienThuongLayout extends AppCompatActivity {
     }
     public void showDialog () {
         dialog = new Dialog(tienThuongLayout.this);
-//        dialog.setTitle("Thangcode.com");
+
         dialog.setContentView(R.layout.dialog);
         dialog.show();
     }
@@ -50,7 +50,7 @@ public class tienThuongLayout extends AppCompatActivity {
 
 
             builder.setMessage("Bạn đã sẵn sàng chưa");
-//        builder.setCancelable(false);
+
         builder.setPositiveButton("Sẵn sàng", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -68,22 +68,14 @@ public class tienThuongLayout extends AppCompatActivity {
         alertDialog.show();
 
     }
+
+    public void back(View view) {
+        Intent intent=new Intent(tienThuongLayout.this,HomeFragment.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 }
 
 
-//    public void setBackGroundLevel(int level) {
-//        tvLevel[level - 1].setBackgroundResource(R.drawable.player_image_money_curent);
-//        if (level - 2 >= 0) {
-//            if (level - 1 == 5 || level - 1 == 10 || level - 1 == 15) {
-//                tvLevel[level - 2].setBackgroundResource(R.drawable.player_image_money_milestone);
-//                return;
-//            }
-//            tvLevel[level - 2].setBackground(null);
-//        }
-//    }
-//
-//    public String getMoney(int lv) {
-//
-//        return tvLevel[lv - 1].getText().toString();
-//    }
+
 

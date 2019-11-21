@@ -24,37 +24,38 @@ import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
-    public static String DATABASE_NAME="ALTPdb.sqlite";
-    private static final String DB_PATH_SUFFIX="/databases/";
-    public static SQLiteDatabase database=null;
+    public static String DATABASE_NAME = "ALTPdb.sqlite";
+    private static final String DB_PATH_SUFFIX = "/databases/";
+    public static SQLiteDatabase database = null;
     private ImageView imageView;
     private ImageView imgload;
     private View imgcircle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mediaPlayer=MediaPlayer.create(MainActivity.this,R.raw.truoc);
-        imageView=findViewById(R.id.imageView);
-        imgload=findViewById(R.id.load);
-        imgcircle=findViewById(R.id.bg_circle_anim);
+        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.truoc);
+        imageView = findViewById(R.id.imageView);
+        imgload = findViewById(R.id.load);
+        imgcircle = findViewById(R.id.bg_circle_anim);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, HomeFragment.class);
+                Intent intent = new Intent(MainActivity.this, HomeFragment.class);
                 startActivity(intent);
             }
         });
         saochepCSDL();
         //---------------------------------
-        ObjectAnimator objectAnimator=ObjectAnimator.ofFloat(imgload,"rotation",0f,360f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(imgload, "rotation", 0f, 360f);
         objectAnimator.setDuration(1000);
         objectAnimator.setRepeatCount(1000);
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator.setInterpolator(new LinearInterpolator());
         objectAnimator.start();
         //-------------------------------------------------
-        ObjectAnimator objectAnimator1=ObjectAnimator.ofFloat(imgcircle,"rotation",0f,360f);
+        ObjectAnimator objectAnimator1 = ObjectAnimator.ofFloat(imgcircle, "rotation", 0f, 360f);
         objectAnimator1.setDuration(10000);
         objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator1.setInterpolator(new LinearInterpolator());
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, HomeFragment.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                 mediaPlayer.stop();
 
             }
@@ -76,59 +77,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-//    @Override
-//    public void onBackPressed() {
-//        final ThongBaoDiaLog thongBaoDialog = new ThongBaoDiaLog(this);
-//        thongBaoDialog.setCancelable(true);
-//        thongBaoDialog.setNotification("Bạn muốn thoát trò chơi ?", "Đồng ý", "Hủy", new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (v.getId() == R.id.btn_ok) {
-//                    finish();
-//
-//                }
-//                thongBaoDialog.dismiss();
-//            }
-//        });
-//        thongBaoDialog.show();
-//    }
     private void saochepCSDL() {
 
 
-        File dbFile=getDatabasePath(DATABASE_NAME);
+        File dbFile = getDatabasePath(DATABASE_NAME);
 
         //if(!dbFile.exists()){
-        try{
+        try {
 
             CopyDatabaseFromAsset();
 //           Toast.makeText(this,"copy thành công",Toast.LENGTH_SHORT).show();
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this,""+e.toString(),Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "" + e.toString(), Toast.LENGTH_SHORT).show();
         }
         // }
     }
 
     private void CopyDatabaseFromAsset() {
-        try{
-            InputStream myInput=getAssets().open(DATABASE_NAME);
-            String outFileName=layDuongDan();
+        try {
+            InputStream myInput = getAssets().open(DATABASE_NAME);
+            String outFileName = layDuongDan();
             //kiem tra
-            File f=new File(getApplicationInfo().dataDir+DB_PATH_SUFFIX);
-            if(!f.exists()){
+            File f = new File(getApplicationInfo().dataDir + DB_PATH_SUFFIX);
+            if (!f.exists()) {
                 f.mkdir();
 
             }
 
-            OutputStream myOutput=new FileOutputStream(outFileName);
+            OutputStream myOutput = new FileOutputStream(outFileName);
             //
-            byte[] buffer=new byte[1024];
+            byte[] buffer = new byte[1024];
             int lenght;
-            while((lenght=myInput.read(buffer))>0){
-                myOutput.write(buffer,0,lenght);
+            while ((lenght = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, lenght);
             }
             //close stream
             myOutput.flush();
@@ -136,12 +117,12 @@ public class MainActivity extends AppCompatActivity {
             myInput.close();
 
 
-        }catch (Exception ex){
-            Log.e("",ex.toString());
+        } catch (Exception ex) {
+            Log.e("", ex.toString());
         }
     }
 
     private String layDuongDan() {
-return getApplicationInfo().dataDir+DB_PATH_SUFFIX+DATABASE_NAME;
+        return getApplicationInfo().dataDir + DB_PATH_SUFFIX + DATABASE_NAME;
     }
 }
