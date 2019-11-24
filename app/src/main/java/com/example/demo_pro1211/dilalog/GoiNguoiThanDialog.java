@@ -45,7 +45,18 @@ public class GoiNguoiThanDialog extends Dialog implements View.OnClickListener {
 
 
     }
-
+    public void getDapAn(int a){
+        switch (a){
+            case 0: txtGoiY.setText("Theo tôi đáp án là A");
+                break;
+            case 1: txtGoiY.setText("Theo tôi đáp án là B");
+                break;
+            case 2: txtGoiY.setText("Theo tôi đáp án là C");
+                break;
+            case 3: txtGoiY.setText("Theo tôi đáp án là D");
+                break;
+        }
+    }
 
     @Override
     public void onClick(View view) {

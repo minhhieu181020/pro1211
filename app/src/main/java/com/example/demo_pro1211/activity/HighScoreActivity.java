@@ -83,4 +83,8 @@ public class HighScoreActivity extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
+
+    public void delete(View view) {
+
+    }
 }

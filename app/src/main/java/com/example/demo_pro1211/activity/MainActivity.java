@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator1.setInterpolator(new LinearInterpolator());
         objectAnimator1.start();
-        new CountDownTimer(1000, 3000) {
+        new CountDownTimer(5000, 3000) {
             public void onTick(long millisUntilFinished) {
-//                mediaPlayer.start();
+                mediaPlayer.start();
             }
 
             public void onFinish() {

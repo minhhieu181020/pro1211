@@ -35,29 +35,5 @@ public class ThongBaoDiaLog extends AppCompatActivity  {
         });
 
     }
-//    public ThongBaoDiaLog(Context context) {
-//        super(context);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        setCancelable(true);
-//        setContentView(R.layout.thong_bao_dia_log);
-//
-//    }
-//
-//    public void setNotification(String notification, String textOk, String textCancle, View.OnClickListener onClickListener) {
-//
-//        btnOk.setText(textOk);
-//        tvNotice.setText(notification);
-//        btnCancle.setText(textCancle);
-//        btnOk.setOnClickListener(onClickListener);
-//        btnCancle.setOnClickListener(onClickListener);
-//
-//        if (textCancle == null) btnCancle.setVisibility(View.GONE);
-//
-//        if (onClickListener == null) btnOk.setOnClickListener(this);
-//
-//    }
-//@Override
-//    public void onClick(View v) {
-//        dismiss();
-//    }
+
 }

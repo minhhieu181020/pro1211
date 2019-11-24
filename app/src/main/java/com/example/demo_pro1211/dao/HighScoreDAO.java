@@ -44,10 +44,21 @@ public class HighScoreDAO {
         }
         return true;
     }
-
+public boolean isdelete(String id){
+    long result = db.delete(TABLE_NAME, "id=?", new String[]{id});
+    try {
+        if (result < 0) {
+            return false;
+        }
+    } catch (Exception ex) {
+        Log.e(TAG, ex.toString());
+        return false;
+    }
+    return true;
+}
     public List<HighScore> selectHighScore() {
         List<HighScore> highScoreList = new ArrayList<>();
-        String select = "SELECT * FROM " + TABLE_NAME;
+        String select = "SELECT * FROM " + TABLE_NAME + " ORDER BY diem DESC";
         Cursor cursor = db.rawQuery(select, null);
         if (cursor.moveToFirst()) {
             do {

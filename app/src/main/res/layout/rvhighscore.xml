@@ -4,37 +4,41 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="horizontal"
-        android:background="#4F6BFFC2"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
-            android:src="@drawable/cup"
-            android:layout_width="70dp"
-            android:layout_height="100dp">
-        </ImageView>
+            android:id="@+id/imgstt"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:src="@drawable/thu1"></ImageView>
+
         <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_width="250dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
 
             <TextView
 
                 android:id="@+id/tvText1"
-                android:layout_width="match_parent"
+                android:layout_width="356dp"
                 android:layout_height="wrap_content"
                 android:text="Name: "
-                android:textSize="25dp"
-                android:textColor="#F1DA0E" />
-            <TextView
-                android:layout_marginTop="10dp"
+                android:textColor="#30F10E"
+                android:textSize="25dp" />
 
+            <TextView
                 android:id="@+id/tvText2"
-                android:textSize="25dp"
-                android:textColor="#FCDC0A"
-                android:layout_width="match_parent"
+
+                android:layout_width="352dp"
                 android:layout_height="wrap_content"
-                android:text="Diem: " />
+                android:layout_marginTop="10dp"
+                android:text="Diem: "
+                android:textColor="#FCDC0A"
+                android:textSize="25dp" />
         </LinearLayout>
 
     </LinearLayout>

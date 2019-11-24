@@ -20,6 +20,7 @@ public class HighScoreAdapter extends RecyclerView.Adapter<HighScoreHolder> {
     private HighScoreDAO highScoreDAO;
 
 
+
     public HighScoreAdapter(Context context, List<HighScore> highScoreList) {
         this.context = context;
         this.highScoreList = highScoreList;
@@ -37,12 +38,24 @@ public class HighScoreAdapter extends RecyclerView.Adapter<HighScoreHolder> {
     @Override
     public void onBindViewHolder(@NonNull final HighScoreHolder holder,final int position) {
         highScoreDAO=new HighScoreDAO(context);
-        holder.tvText1.setText("name: "+highScoreList.get(position).getName());
-        holder.tvText2.setText("thanh tich: "+highScoreList.get(position).getDiem());
+
+        holder.tvText1.setText("Name: "+highScoreList.get(position).getName());
+        holder.tvText2.setText("Score: "+highScoreList.get(position).getDiem() +"vnd");
+        if (position==0){
+            holder.imgstt.setImageResource(R.drawable.thu1);
+        }
+        else if (position == 1){
+            holder.imgstt.setImageResource(R.drawable.so2);
+        }else if (position  == 2){
+            holder.imgstt.setImageResource(R.drawable.so3);
+        }else {
+            holder.imgstt.setImageResource(R.drawable.cry);
+        }
     }
 
     @Override
     public int getItemCount() {
+
         return highScoreList.size();
     }
 }

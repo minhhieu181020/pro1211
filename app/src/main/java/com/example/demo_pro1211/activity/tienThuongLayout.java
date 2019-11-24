@@ -15,7 +15,7 @@ import com.example.demo_pro1211.R;
 import com.example.demo_pro1211.dilalog.ThongBaoDiaLog;
 
 public class tienThuongLayout extends AppCompatActivity {
-    private TextView tvLevel;
+
     private Button btnsansang;
     private Dialog dialog;
     private ThongBaoDiaLog thongBaoDiaLog;
@@ -27,7 +27,7 @@ public class tienThuongLayout extends AppCompatActivity {
         setContentView(R.layout.tien_thuong_layout);
 
         btnsansang = findViewById(R.id.btn_sansang);
-        tvLevel = findViewById(R.id.tv_level);
+
         btn_Ok = findViewById(R.id.btn_ok);
         btnsansang.setOnClickListener(new View.OnClickListener() {
             @Override
