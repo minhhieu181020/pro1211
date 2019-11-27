@@ -46,37 +46,40 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        animator();
         saochepCSDL();
         //---------------------------------
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(imgload, "rotation", 0f, 360f);
-        objectAnimator.setDuration(1000);
-        objectAnimator.setRepeatCount(1000);
-        objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        objectAnimator.setInterpolator(new LinearInterpolator());
-        objectAnimator.start();
-        //-------------------------------------------------
-        ObjectAnimator objectAnimator1 = ObjectAnimator.ofFloat(imgcircle, "rotation", 0f, 360f);
-        objectAnimator1.setDuration(10000);
-        objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
-        objectAnimator1.setInterpolator(new LinearInterpolator());
-        objectAnimator1.start();
-        new CountDownTimer(5000, 3000) {
-            public void onTick(long millisUntilFinished) {
-                mediaPlayer.start();
-            }
 
-            public void onFinish() {
-
-                Intent intent = new Intent(MainActivity.this, HomeFragment.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-                mediaPlayer.stop();
-
-            }
-        }.start();
     }
 
+private void animator(){
+    ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(imgload, "rotation", 0f, 360f);
+    objectAnimator.setDuration(1000);
+    objectAnimator.setRepeatCount(1000);
+    objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
+    objectAnimator.setInterpolator(new LinearInterpolator());
+    objectAnimator.start();
+    //-------------------------------------------------
+    ObjectAnimator objectAnimator1 = ObjectAnimator.ofFloat(imgcircle, "rotation", 0f, 360f);
+    objectAnimator1.setDuration(10000);
+    objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
+    objectAnimator1.setInterpolator(new LinearInterpolator());
+    objectAnimator1.start();
+    new CountDownTimer(5000, 3000) {
+        public void onTick(long millisUntilFinished) {
+            mediaPlayer.start();
+        }
 
+        public void onFinish() {
+
+            Intent intent = new Intent(MainActivity.this, HomeFragment.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+            mediaPlayer.stop();
+
+        }
+    }.start();
+}
     private void saochepCSDL() {
 
 

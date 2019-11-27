@@ -44,29 +44,7 @@ public class HighScoreActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager((HighScoreActivity.this));
         rvHighScore.setLayoutManager(linearLayoutManager);
         rvHighScore.setAdapter(highScoreAdapter);
-        try {
 
-            PackageInfo info = getPackageManager().getPackageInfo(
-
-                    "com.example.demo_pro1211",
-
-                    PackageManager.GET_SIGNATURES);
-
-            for (Signature signature : info.signatures) {
-
-                MessageDigest md = MessageDigest.getInstance("SHA");
-
-                md.update(signature.toByteArray());
-
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-
-            }
-
-        } catch (PackageManager.NameNotFoundException e) {
-
-        } catch (NoSuchAlgorithmException e) {
-
-        }
        CallbackManager callbackManager = CallbackManager.Factory.create();
 
     }
