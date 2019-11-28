@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.tienThuongLayout">
     <ImageView
-        android:onClick="back"
+       android:id="@+id/imgback"
         android:src="@drawable/back"
         android:layout_width="50dp"
         android:layout_height="50dp"/>

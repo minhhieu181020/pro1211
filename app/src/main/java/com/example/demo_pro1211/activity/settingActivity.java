@@ -10,26 +10,32 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.demo_pro1211.R;
+import com.example.demo_pro1211.interfaces.SettingView;
+import com.example.demo_pro1211.presenter.SettingPresenter;
 
-public class settingActivity extends AppCompatActivity {
+public class settingActivity extends AppCompatActivity implements SettingView {
     private ImageView imgon;
 
-
+    private SettingPresenter settingPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         imgon = findViewById(R.id.imgon);
-
+        settingPresenter=new SettingPresenter(this);
         imgon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imgon.setImageResource(R.drawable.ic_off);
-
+                settingPresenter.mute();
             }
         });
+
 
     }
 
 
+    @Override
+    public void mute() {
+        imgon.setImageResource(R.drawable.ic_off);
+    }
 }
