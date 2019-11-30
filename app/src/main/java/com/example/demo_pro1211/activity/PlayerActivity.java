@@ -34,7 +34,7 @@ import java.util.Random;
 import static com.example.demo_pro1211.activity.MainActivity.DATABASE_NAME;
 import static com.example.demo_pro1211.activity.MainActivity.database;
 
-public class PlayerActivity extends Activity implements PlayerView {
+public class PlayerActivity extends Activity implements View.OnClickListener {
     Database db;
     public MediaPlayer mediaPlayer, mediaPlayerdung, mediaPlayersai, mediaplayertimeout;
     private ImageView imgonplayer, imgoffplayer;
@@ -80,146 +80,45 @@ public class PlayerActivity extends Activity implements PlayerView {
         mediaplayertimeout = MediaPlayer.create(this, R.raw.timeout);
         imgoffplayer = findViewById(R.id.imgoffplayer);
 
-        playerPresenter=new PlayerPresenter(this);
 
-        playerPresenter.hienthicauhoi();
-
-//        hienThiCauHoi();
-//        setEvents();
+        hienThiCauHoi();
+        setEvents();
 //        tinhtien();
-        btnChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.doicauhoi();
-            }
-        });
-        btn5050.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.loaibo2dapan();
-            }
-        });
-        btnCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.goidiennguoithan();
-            }
-        });
-        btnKhanGia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.goiykhangia();
-            }
-        });
-        tvcaseA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.xulychondapan(v);
-            }
-        });
-        tvcaseB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.xulychondapan(v);
-            }
-        });
-        tvcaseC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.xulychondapan(v);
-            }
-        });
-        tvcaseD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerPresenter.xulychondapan(v);
-            }
-        });
     }
 
 
-    CountDownTimer demtime;
 
 
-    public void back(View view) {
-
-        showAlertDialog();
-        demtime.cancel();
-
-    }
-    public void showDialog () {
-       Dialog dialog = new Dialog(PlayerActivity.this);
-
-        dialog.setContentView(R.layout.dialog);
-        dialog.show();
-    }
-    public void showAlertDialog () {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
-        builder.setMessage("Bạn co muon luu ket quả không");
 
-        builder.setPositiveButton("Lưu", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                if (cauSo==1){
-                    Toast.makeText(PlayerActivity.this,"ban chua tra loi cau nao",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(PlayerActivity.this, HomeFragment.class);
-                    startActivity(intent);
-                }else {
-                    playerPresenter.GameOver();
-                }
 
-            }
-        });
-        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(PlayerActivity.this, HomeFragment.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-                demtime.start();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+
+    private void setEvents() {
+        btnCall.setOnClickListener(this);
+        btnKhanGia.setOnClickListener(this);
+        btn5050.setOnClickListener(this);
+        imgonplayer.setOnClickListener(this);
+        btnChange.setOnClickListener(this);
+        btn5050.setOnClickListener(this);
+
+        tvcaseA.setOnClickListener(this);
+        tvcaseB.setOnClickListener(this);
+        tvcaseC.setOnClickListener(this);
+        tvcaseD.setOnClickListener(this);
 
     }
 
-    @Override
-    public void xuLyChonDapAn(final View view) {
+    private void xuLyChonDapAn(final View view) {
+
         if (!clickDapAn) {
             demtime.cancel();
             clickDapAn = true;
             view.setBackgroundResource(R.drawable.player_answer_background_selected);
-
-            new CountDownTimer(3000, 1000) {
+            new CountDownTimer(3000, 3000) {
                 boolean green = false;
 
                 public void onTick(long millisUntilFinished) {
-//                    new CountDownTimer(2000,1000){
-//                        @Override
-//                        public void onTick(long millisUntilFinished) {
-//                        }
-//
-//                        @Override
-//                        public void onFinish() {
-//                            if (luaChon.equals(dapAn)) {
-//                                kq = true;
-//                                if (!green) {
-//                                    green = true;
-//                                    view.setBackgroundResource(R.drawable.player_answer_background_true);
-//                                    mediaPlayerdung.start();
-//                                    HienThiCauHoi();
-//                                } else {
-//                                    view.setBackgroundResource(R.drawable.player_answer_background_selected);
-//                                    green = false;
-//
-//                                }
-//                            }
-//                        }
-//                    }.start();
-
 
                 }
 
@@ -269,12 +168,10 @@ public class PlayerActivity extends Activity implements PlayerView {
 
                             tvTien.setText("500,000,000            ");
                         }
-                        Log.e("abc","abc");
-                        HienThiCauHoi();
                         cauSo++;
                         if (cauSo == 6) dokho = 2;
 //                        if (cauSo == 10) dokho = 3;
-
+                        hienThiCauHoi();
                         tvcaseA.setBackgroundResource(R.drawable.player_answer_background_normal);
                         tvcaseB.setBackgroundResource(R.drawable.player_answer_background_normal);
                         tvcaseC.setBackgroundResource(R.drawable.player_answer_background_normal);
@@ -323,7 +220,6 @@ public class PlayerActivity extends Activity implements PlayerView {
                                         }
                                         green = false;
                                     }
-
                                     mediaPlayersai.start();
                                 }
 
@@ -331,7 +227,6 @@ public class PlayerActivity extends Activity implements PlayerView {
                                 public void onFinish() {
                                     Intent intent = new Intent(PlayerActivity.this, HomeFragment.class);
                                     startActivity(intent);
-
                                 }
                             }.start();
 
@@ -371,9 +266,8 @@ public class PlayerActivity extends Activity implements PlayerView {
                                 }
                                 green = false;
                             }
-                            playerPresenter.GameOver();
+                            gameover();
                             mediaPlayersai.start();
-
                         }
 
                     }
@@ -383,9 +277,9 @@ public class PlayerActivity extends Activity implements PlayerView {
         }
     }
 
-    @Override
-    public void HienThiCauHoi() {
+    CountDownTimer demtime;
 
+    private void hienThiCauHoi() {
         mediaPlayer.start();
         try {
 
@@ -415,13 +309,13 @@ public class PlayerActivity extends Activity implements PlayerView {
 
             @Override
             public void onFinish() {
-                playerPresenter.GameOver();
+                gameover();
             }
         }.start();
     }
 
-    @Override
-    public void Loaibo2phuonansai() {
+
+    private void loaibo2phuonansai() {
         if (!troGiup5050) {
             troGiup5050 = true;
             String[] array = {"A", "B", "C", "D"};       // tim chỉ số của đáp án đúng
@@ -464,10 +358,10 @@ public class PlayerActivity extends Activity implements PlayerView {
             }
             btn5050.setBackgroundResource(R.drawable.player_button_image_help_5050_x);
         }
+
     }
 
-    @Override
-    public void Ykenkhangia() {
+    private void ykenkhangia() {
         if (!troGiupKhanGia){
             troGiupKhanGia=true;
             yKienKhanGiaDialog yKienKhanGiaDialog = new yKienKhanGiaDialog(PlayerActivity.this);
@@ -496,10 +390,10 @@ public class PlayerActivity extends Activity implements PlayerView {
             yKienKhanGiaDialog.setTyLe(tyLe[0],tyLe[1],tyLe[2],tyLe[3]);
             yKienKhanGiaDialog.show();
         }demtime.start();
+
     }
 
-    @Override
-    public void Goidiennguoithan() {
+    private void goidiennguoithan() {
         if (!troGiupGoiNguoiThan) {
 
             troGiupGoiNguoiThan = true;
@@ -532,21 +426,24 @@ public class PlayerActivity extends Activity implements PlayerView {
 
         }demtime.start();
         //show dialog goi nguoi than
+
+
     }
 
-    @Override
-    public void Doicauhoi() {
+    private void doicauhoi() {
         if (!doiCauHoi) {
             doiCauHoi = true;
-           HienThiCauHoi();
+            hienThiCauHoi();
             btnChange.setBackgroundResource(R.drawable.player_button_image_help_change_question_x);
         } else {
             Toast.makeText(this, "ban da dung su tro giup nay roi", Toast.LENGTH_SHORT).show();
         }
+
     }
 
-    @Override
-    public void Gameover() {
+
+    private void gameover() {
+
 
         new CountDownTimer(2000, 1000) {
 
@@ -600,13 +497,99 @@ public class PlayerActivity extends Activity implements PlayerView {
 
             }
         }.start();
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+//            case R.id.iv_player:
+//                drawerLayout.openDrawer(GravityCompat.START);
+//                break;
+            case R.id.btn_call:
+                goidiennguoithan();
+                break;
+            case R.id.btn_khangia:
+                ykenkhangia();
+                break;
+            case R.id.btn_5050:
+                loaibo2phuonansai();
+                break;
+
+            case R.id.btn_change:
+                doicauhoi();
+                break;
+
+            case R.id.tv_case_a:
+                luaChon = "A";
+                xuLyChonDapAn(tvcaseA);
+                break;
+            case R.id.tv_case_b:
+                luaChon = "B";
+                xuLyChonDapAn(tvcaseB);
+                break;
+            case R.id.tv_case_c:
+                luaChon = "C";
+                xuLyChonDapAn(tvcaseC);
+                break;
+            case R.id.tv_case_d:
+                luaChon = "D";
+                xuLyChonDapAn(tvcaseD);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void back(View view) {
+
+        showAlertDialog();
+        demtime.cancel();
+
+    }
+    public void showDialog () {
+        Dialog dialog = new Dialog(PlayerActivity.this);
+
+        dialog.setContentView(R.layout.dialog);
+        dialog.show();
+    }
+    public void showAlertDialog () {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+
+        builder.setMessage("Bạn co muon luu ket quả không");
+
+        builder.setPositiveButton("Lưu", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (cauSo==1){
+                    Toast.makeText(PlayerActivity.this,"ban chua tra loi cau nao",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(PlayerActivity.this, HomeFragment.class);
+                    startActivity(intent);
+                }else {
+                    gameover();
+                }
+
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(PlayerActivity.this, HomeFragment.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                demtime.start();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 //    public void stopThread() {
 //        isPlaying = false;
 //        Thread.currentThread().interrupt();
 //    }
 }
-
-
 
 

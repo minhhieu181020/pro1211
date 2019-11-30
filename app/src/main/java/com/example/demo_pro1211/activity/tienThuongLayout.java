@@ -17,7 +17,7 @@ import com.example.demo_pro1211.dilalog.ThongBaoDiaLog;
 import com.example.demo_pro1211.interfaces.TienThuongView;
 import com.example.demo_pro1211.presenter.TienThuongPresenter;
 
-public class tienThuongLayout extends AppCompatActivity implements TienThuongView {
+public class tienThuongLayout extends AppCompatActivity implements TienThuongView  {
 
     private Button btnsansang;
     private Dialog dialog;
