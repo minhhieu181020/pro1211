@@ -2,6 +2,7 @@ package com.example.demo_pro1211.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -15,54 +16,27 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.demo_pro1211.R;
+import com.example.demo_pro1211.databinding.HomeFragmentBinding;
 import com.example.demo_pro1211.interfaces.HomeView;
 import com.example.demo_pro1211.presenter.HomePresenter;
 
 public class HomeFragment extends AppCompatActivity implements HomeView {
-    private ImageView imgabout, imgsetting, imghighscore;
+
     private Button btnDong;
-    private AlertDialog alertDialog;
-    private HomePresenter homePresenter;
-    private ImageButton imgPlay;
+
     private View imgcircle;
     public MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_fragment);
-        imghighscore = findViewById(R.id.btn_high_score);
-        imgabout = findViewById(R.id.btn_about);
-        imgsetting = findViewById(R.id.btn_setting);
-        imgPlay = findViewById(R.id.btn_play);
+        HomeFragmentBinding mainBinding = DataBindingUtil.setContentView(this, R.layout.home_fragment);
+
         imgcircle = findViewById(R.id.bg_circle_anim);
-        homePresenter = new HomePresenter(this);
-        imgsetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                homePresenter.setting();
-            }
-        });
-        imgabout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                homePresenter.rule();
-            }
-        });
-        imghighscore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                homePresenter.highscore();
-            }
-        });
-        imgPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                homePresenter.play();
-            }
-        });
+        HomePresenter homePresenter = new HomePresenter(this);
         homePresenter.animator();
-        mediaPlayer = MediaPlayer.create(this, R.raw.hihi);
+        mainBinding.setHomeprensenter(homePresenter);
+
 
     }
 
