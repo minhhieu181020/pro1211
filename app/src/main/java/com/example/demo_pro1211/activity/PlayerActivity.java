@@ -299,8 +299,9 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         } catch (Exception ex) {
             Toast.makeText(getApplicationContext(), ex + "", Toast.LENGTH_SHORT).show();
         }
-        time = 31;
-        demtime = new CountDownTimer(32100, 1000) {
+
+        time = 30;
+        demtime = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 time--;
@@ -364,6 +365,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
     private void ykenkhangia() {
         if (!troGiupKhanGia){
             troGiupKhanGia=true;
+
             yKienKhanGiaDialog yKienKhanGiaDialog = new yKienKhanGiaDialog(PlayerActivity.this);
             btnKhanGia.setBackgroundResource(R.drawable.player_button_image_help_audience_x);
             int[] tyLe={0,0,0,0};       //ty le cua 4 dap an
@@ -389,7 +391,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
 
             yKienKhanGiaDialog.setTyLe(tyLe[0],tyLe[1],tyLe[2],tyLe[3]);
             yKienKhanGiaDialog.show();
-        }demtime.start();
+        }
 
     }
 
@@ -398,7 +400,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
 
             troGiupGoiNguoiThan = true;
             GoiNguoiThanDialog goiNguoiThanDialog = new GoiNguoiThanDialog(PlayerActivity.this);
-            demtime.cancel();
+
             btnCall.setBackgroundResource(R.drawable.player_button_image_help_call_x);
 
             int[] tyLe={0,0,0,0};       //ty le cua 4 dap an
@@ -424,16 +426,19 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
             ///xu ly dap an show ra
             goiNguoiThanDialog.show();
 
-        }demtime.start();
+        }
         //show dialog goi nguoi than
 
 
     }
 
     private void doicauhoi() {
+
         if (!doiCauHoi) {
             doiCauHoi = true;
+
             hienThiCauHoi();
+            demtime.cancel();
             btnChange.setBackgroundResource(R.drawable.player_button_image_help_change_question_x);
         } else {
             Toast.makeText(this, "ban da dung su tro giup nay roi", Toast.LENGTH_SHORT).show();
