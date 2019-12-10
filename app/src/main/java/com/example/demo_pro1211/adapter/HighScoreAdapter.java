@@ -41,6 +41,7 @@ public class HighScoreAdapter extends RecyclerView.Adapter<HighScoreHolder> {
 
         holder.tvText1.setText("Name: "+highScoreList.get(position).getName());
         holder.tvText2.setText("Score: "+highScoreList.get(position).getDiem() +"vnd");
+
         if (position==0){
             holder.imgstt.setImageResource(R.drawable.thu1);
         }

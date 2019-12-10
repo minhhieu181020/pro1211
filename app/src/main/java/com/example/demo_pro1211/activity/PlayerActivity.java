@@ -165,8 +165,9 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
                         } else if (cauSo == 14) {
                             tvTien.setText("300,000,000          ");
                         } else if (cauSo == 15) {
-
                             tvTien.setText("500,000,000            ");
+                            Toast.makeText(PlayerActivity.this,"Ban da tro thanh trieu phu",Toast.LENGTH_SHORT).show();
+                            gameover();
                         }
                         cauSo++;
                         if (cauSo == 6) dokho = 2;
@@ -437,8 +438,25 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
         if (!doiCauHoi) {
             doiCauHoi = true;
 
-            hienThiCauHoi();
-            demtime.cancel();
+            try {
+
+                database = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+                Cursor cursor = database.rawQuery("SELECT * FROM CauHoi where level=" + dokho + " ORDER BY RANDOM() LIMIT 1;", null);
+                //cauhoi =new Question();
+                if (cursor.moveToNext()) {
+
+                    tvQuestion.setText(cursor.getString(1));
+                    tvcaseA.setText("A. " + cursor.getString(2));
+                    tvcaseB.setText("B. " + cursor.getString(3));
+                    tvcaseC.setText("C. " + cursor.getString(4));
+                    tvcaseD.setText("D. " + cursor.getString(5));
+                    dapAn = cursor.getString(6);
+                }
+                cursor.close();
+            } catch (Exception ex) {
+                Toast.makeText(getApplicationContext(), ex + "", Toast.LENGTH_SHORT).show();
+            }
+
             btnChange.setBackgroundResource(R.drawable.player_button_image_help_change_question_x);
         } else {
             Toast.makeText(this, "ban da dung su tro giup nay roi", Toast.LENGTH_SHORT).show();
@@ -481,6 +499,7 @@ public class PlayerActivity extends Activity implements View.OnClickListener {
                         int id = Integer.parseInt(id1);
 //                        int diem=Integer.parseInt(diem1);
                         HighScore highScore = new HighScore(id, name, diem);
+
 
                         if (highScoreDAO.insertHighscore(highScore)) {
                             Toast.makeText(PlayerActivity.this, "thanh cong", Toast.LENGTH_SHORT).show();

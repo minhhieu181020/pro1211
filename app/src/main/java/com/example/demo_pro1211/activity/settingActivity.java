@@ -14,7 +14,7 @@ import com.example.demo_pro1211.interfaces.SettingView;
 import com.example.demo_pro1211.presenter.SettingPresenter;
 
 public class settingActivity extends AppCompatActivity implements SettingView {
-    private ImageView imgon;
+    private ImageView imgon,imgon1;
 
     private SettingPresenter settingPresenter;
     @Override
@@ -22,8 +22,15 @@ public class settingActivity extends AppCompatActivity implements SettingView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         imgon = findViewById(R.id.imgon);
+        imgon1=findViewById(R.id.imgon1);
         settingPresenter=new SettingPresenter(this);
         imgon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                settingPresenter.mute();
+            }
+        });
+        imgon1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 settingPresenter.mute();

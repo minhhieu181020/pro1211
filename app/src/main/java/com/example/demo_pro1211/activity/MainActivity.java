@@ -39,13 +39,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imgload = findViewById(R.id.load);
         imgcircle = findViewById(R.id.bg_circle_anim);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HomeFragment.class);
-                startActivity(intent);
-            }
-        });
+
         animator();
         saochepCSDL();
         //---------------------------------
@@ -65,7 +59,7 @@ private void animator(){
     objectAnimator1.setRepeatCount(ValueAnimator.INFINITE);
     objectAnimator1.setInterpolator(new LinearInterpolator());
     objectAnimator1.start();
-    new CountDownTimer(5000, 3000) {
+    new CountDownTimer(5200, 3000) {
         public void onTick(long millisUntilFinished) {
             mediaPlayer.start();
         }
